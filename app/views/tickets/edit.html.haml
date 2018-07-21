@@ -6,3 +6,11 @@
 = render partial: "form"
 -# listing of all ticket_notes
 = render partial: "ticket_note_form"
+%table.table.table-striped
+  %tr
+    %th Note
+    %th Created at
+  - @ticket_notes.each do | ticket_note |
+    %tr
+      %td= ticket_note.note
+      %td= ticket_note.created_at
