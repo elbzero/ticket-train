@@ -1,4 +1,16 @@
 - model_class = Ticket
 .page-header
   %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+-# update title/description
+= render partial: "form"
+-# create new ticket note form
+= render partial: "ticket_note_form"
+-# listing of all ticket_notes
+%table.table.table-striped
+  %tr
+    %th Note
+    %th Created at
+  - @ticket_notes.each do | ticket_note |
+    %tr
+      %td= ticket_note.note
+      %td= ticket_note.created_at

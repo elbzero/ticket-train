@@ -27,6 +27,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails", git: "https://github.com/seyhunak/twitter-bootstrap-rails", branch: 'master'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'annotate'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
