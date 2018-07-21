@@ -1,0 +1,13 @@
+= simple_form_for @new_ticket_note, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :ticket_id, as: :hidden
+  = f.input :note
+  = f.error_span :note
+  = f.button :submit, :class => 'btn-primary', value:"Add a Note"
+%table.table.table-striped
+  %tr
+    %th Note
+    %th Created at
+  - @ticket_notes.each do | ticket_note |
+    %tr
+      %td= ticket_note.note
+      %td= ticket_note.created_at
