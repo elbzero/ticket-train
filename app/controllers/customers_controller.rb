@@ -19,6 +19,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+    @tickets = @customer.tickets
   end
 
   # POST /customers

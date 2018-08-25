@@ -2,6 +2,8 @@
 
 = render 'form'
 
+= render partial: "tickets/index", locals: { tickets: @tickets }
+
 = link_to 'Show', @customer
 \|
 = link_to 'Back', customers_path
