@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_25_160212) do
+ActiveRecord::Schema.define(version: 2018_08_25_203652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_08_25_160212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "driving_directions"
-    t.binary "vip"
+    t.boolean "vip"
   end
 
   create_table "ticket_notes", force: :cascade do |t|
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2018_08_25_160212) do
     t.datetime "updated_at", null: false
     t.string "customer_first_name"
     t.string "customer_last_name"
+    t.integer "customer_id"
   end
 
+  add_foreign_key "tickets", "customers"
 end

@@ -1,10 +1,8 @@
 = simple_form_for @ticket, :html => { :class => 'form-horizontal' } do |f|
   = f.input :title
   = f.error_span :title
-  = f.input :customer_first_name
-  = f.error_span :customer_first_name
-  = f.input :customer_last_name
-  = f.error_span :customer_last_name
+  = f.input :customer_id, collection: Customer.all, label_method: :name, value_method: :id
+  = f.error_span :customer_id
   = f.input :description
   = f.error_span :description
   = f.button :submit, :class => 'btn-primary'
