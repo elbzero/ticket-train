@@ -11,4 +11,5 @@
 
 class Ticket < ApplicationRecord
   has_many :ticket_notes
+  belongs_to :customer
 end
