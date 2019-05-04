@@ -14,7 +14,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @customer = Customer.new
+    @customer = Customer.new driving_directions: 'use the normal route'
   end
 
   # GET /customers/1/edit
@@ -64,12 +64,12 @@ class CustomersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_customer
-      @customer = Customer.find(params[:id])
-    end
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def customer_params
-      params.require(:customer).permit(:vip, :first_name, :last_name, :driving_directions)
-    end
+  def customer_params
+    params.require(:customer).permit(:vip, :first_name, :last_name, :driving_directions)
+  end
 end
