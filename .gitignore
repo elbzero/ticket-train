@@ -31,3 +31,4 @@
 
 #syncthing ignore
 .stignore
+.idea

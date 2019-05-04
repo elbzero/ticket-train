@@ -9,8 +9,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1
   # GET /customers/1.json
-  def show
-  end
+  def show; end
 
   # GET /customers/new
   def new
@@ -30,7 +29,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
+        format.json { redirect_to customers_path }
       else
         format.html { render :new }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
@@ -44,7 +43,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @customer }
+        format.json { redirect_to customers_path }
       else
         format.html { render :edit }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
@@ -63,13 +62,13 @@ class CustomersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_customer
-      @customer = Customer.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def customer_params
-      params.require(:customer).permit(:vip, :first_name, :last_name, :driving_directions)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def customer_params
+    params.require(:customer).permit(:vip, :first_name, :last_name, :driving_directions)
+  end
 end
