@@ -1,10 +1,7 @@
 - model_class = Ticket
--# update title/description
 .page-header
   %h1 Edit Ticket ##{@ticket.id}
--# create new ticket note form
 = render partial: "form"
--# listing of all ticket_notes
 = render partial: "ticket_note_form"
 %table.table.table-striped
   %tr

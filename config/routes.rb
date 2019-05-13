@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get :open
     end
   end
+  resources :work_logs, only: [:new, :edit, :create, :update, :destroy]
 
   root to: 'tickets#index'
   resources :ticket_notes
