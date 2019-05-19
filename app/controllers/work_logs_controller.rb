@@ -3,7 +3,7 @@ class WorkLogsController < ApplicationController
 
 
   def new
-    @work_log = WorkLog.new
+    @work_log = WorkLog.new(ticket_id: params[:ticket_id])
   end
 
   def edit
@@ -14,7 +14,7 @@ class WorkLogsController < ApplicationController
 
     respond_to do |format|
       if @work_log.save
-        format.html { redirect_to @work_log, notice: 'Work Log was successfully created.' }
+        format.html { redirect_to edit_ticket_path(@work_log.ticket), notice: 'Work Log was successfully created.' }
       else
         format.html { render :new }
       end
@@ -45,7 +45,7 @@ class WorkLogsController < ApplicationController
     end
 
     def work_log_params
-      params.require(:work_log).permit(:start_time, :end_time, :billable_hours)
+      params.require(:work_log).permit(:start_time, :end_time, :billable_hours, :ticket_id)
     end
 
 end

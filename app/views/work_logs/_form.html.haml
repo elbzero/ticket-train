@@ -5,6 +5,7 @@
   = f.error_span :end_time
   = f.input :billable_hours
   = f.error_span :billable_hours
+  = f.input :ticket_id, as: :hidden
 
   = f.button :submit, :class => 'btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), edit_ticket_path(@work_log.ticket), :class => 'btn btn-default'
