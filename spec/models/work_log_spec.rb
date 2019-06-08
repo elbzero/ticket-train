@@ -20,7 +20,7 @@ RSpec.describe WorkLog, type: :model do
 
   it 'calculates Total Time correctly.' do
     worklog = WorkLog.create(ticket: @ticket, start_time: DateTime.now, end_time: 1.hour.from_now)
-    expect(worklog.total_time).to eq 1
+    expect(worklog.total_time).to eq 2
   end
 
 end
