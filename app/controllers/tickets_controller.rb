@@ -23,8 +23,8 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1/edit
   def edit
-    @new_ticket_note = TicketNote.new ticket_id: @ticket.id
     @ticket_notes = @ticket.ticket_notes.order created_at: :desc
+    @work_logs = @ticket.work_logs.order created_at: :desc
   end
 
   # POST /tickets
